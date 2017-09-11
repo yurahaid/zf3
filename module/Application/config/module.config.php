@@ -44,6 +44,30 @@ return [
                     ],
                 ],
             ],
+            'about' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route' => '/about',
+                    'defaults' => [
+                        'controller' => Controller\IndexController::class,
+                        'action' => 'about'
+                    ],
+                ],
+            ],
+            'barcode' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route' => '/barcode[/:type/:label]',
+                    'constraints' => [
+                        'type' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'label' => '[a-zA-Z0-9_-]*'
+                    ],
+                    'defaults' => [
+                        'controller' => Controller\IndexController::class,
+                        'action' => 'barcode',
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers'        => [
